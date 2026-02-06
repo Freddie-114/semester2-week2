@@ -9,3 +9,5 @@
 
 
 -- write your sql code here
+select Books.title, Loans.member_id,
+Loans.loan_date from Books join Loans on Books.id = Loans.book_id

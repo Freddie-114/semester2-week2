@@ -11,6 +11,14 @@ import sqlite3
 
 
 def customer_tickets(conn, customer_id):
+    
+    query="""select films.title, sreenings.screen, tickets.price
+from tickets join screenings on tickets.sreening_id = sreening.screen_id
+join films on sreening.film_id = films.ilm_id
+where tickets.customer_id = ?"""
+    cursor = conn.execute(query,(customer_id))
+    for row in cursor:
+        print(type(row))
     """
     Return a list of tuples:
     (film_title, screen, price)
